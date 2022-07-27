@@ -30,13 +30,18 @@ function Content() {
 // }
 
 function PepeRander() {
-  const API = "https://dapi.kakao.com/v2/search/image";
+  // const API = "https://dapi.kakao.com/v2/search/image";
   const [searchData, setSearchData] = useState("");
-  const aaa = "11";
-  console.log(aaa);
 
   useEffect(() => {
-    fetch(API)
+    fetch("https://dapi.kakao.com/v2/search/image", {
+      headers: {
+        Authorization: "17d6f89d24fa2565f0e7155dc37188f0",
+      },
+      data: {
+        query: "pepe",
+      },
+    })
       .then((res) => res.json())
       .then((data) => setSearchData(data));
   }, []);
