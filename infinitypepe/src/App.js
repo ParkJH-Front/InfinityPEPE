@@ -1,31 +1,18 @@
 import { useEffect, useState } from "react";
-import "./style.css";
+import ImgBox from "./ImgBox";
 
-function Nav() {
-  return (
-    <div>
-      <nav className="menu">
-        <p>네비박스</p>
-      </nav>
-    </div>
-  );
-}
+// 이미지 검색한 결과를 출력하는 순서
+// 1. 위치는 최상위 (props 활용을 위해)
+// 2. input 을 통해 사용자로부터 입력값을 받음 (value)
+// 3. onsubmit 이벤트 발생 시 API를 불러옴
+// 4. API URL 내 value를 통해 검색을 진행
+// 5. 검색한 결과를 리턴하여 h1 테그에 전달
+// 6. input 안에 있는 내용을 지워버림.
 
-// function Box(props) {
-//   const [imgArr, setImgArr] = useState(props);
-//   console.log("왜?");
-//   console.log(imgArr);
-//   return (
-//     <div>
-//       <h1>test</h1>
-//     </div>
-//   );
-// }
-
-function Main() {
-  const [word, setWord] = useState("");
-  const [trigger, setTrigger] = useState(false);
-  const [searchData, setSearchData] = useState([]); //searchData 에 결과가 들어있음.. 어케뺌?
+function App() {
+  const [word, setWord] = useState("pepe");
+  const [search, setSearch] = useState("");
+  const [rowData, setRowData] = useState([]);
 
   const onChange = (event) => setWord(event.target.value);
 
@@ -34,26 +21,23 @@ function Main() {
     if (word === "") {
       return;
     }
-
-    if (trigger === false) {
-      setTrigger(true);
-    } else {
-      setTrigger(false);
-    }
+    setSearch(word);
+    setWord("");
   };
 
   useEffect(() => {
-    fetch(`https://dapi.kakao.com/v2/search/image?query=${word}`, {
+    const URL = `https://dapi.kakao.com/v2/search/image?query=${search}`;
+    fetch(URL, {
       headers: {
         Authorization: "KakaoAK 17d6f89d24fa2565f0e7155dc37188f0",
       },
     })
       .then((req) => req.json())
       .then((data) => {
-        setSearchData(data);
-        setWord("");
+        setRowData(data);
       });
-  }, [trigger]);
+  }, [search]);
+
   return (
     <div>
       <form onSubmit={onSubmit}>
@@ -61,19 +45,13 @@ function Main() {
           onChange={onChange}
           value={word}
           type="text"
-          placeholder="findIMG"
+          placeholder="Write your to do..."
         />
       </form>
+      <h2>검색된 이미지가 나와야해</h2>.
+      <ImgBox APIdata={rowData} />
     </div>
   );
 }
 
-function App() {
-  return (
-    <div className="container">
-      <Nav />
-      <Main />
-    </div>
-  );
-}
 export default App;
