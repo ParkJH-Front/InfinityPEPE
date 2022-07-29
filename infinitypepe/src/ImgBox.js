@@ -1,14 +1,12 @@
 import { useState } from "react";
 
 function ImgBox(props) {
-  const [imgData, setImgdata] = useState(props.APIdata.documents);
-  console.log(imgData);
+  const ImgURL = props.APIdata.documents[0]?.image_url ?? "./pepe.jpg";
 
   return (
     <div>
-      <img src="imgData"></img>
+      <img src={ImgURL}></img>
     </div>
   );
 }
-
 export default ImgBox;

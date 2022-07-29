@@ -11,7 +11,7 @@ import ImgBox from "./ImgBox";
 
 function App() {
   const [word, setWord] = useState("pepe");
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState("pepe");
   const [rowData, setRowData] = useState([]);
 
   const onChange = (event) => setWord(event.target.value);
@@ -26,6 +26,11 @@ function App() {
   };
 
   useEffect(() => {
+    console.log(search);
+    if (search === "") {
+      return;
+    }
+
     const URL = `https://dapi.kakao.com/v2/search/image?query=${search}`;
     fetch(URL, {
       headers: {
@@ -49,7 +54,7 @@ function App() {
         />
       </form>
       <h2>검색된 이미지가 나와야해</h2>.
-      <ImgBox APIdata={rowData} />
+      {!!rowData && <ImgBox APIdata={rowData} />}
     </div>
   );
 }
