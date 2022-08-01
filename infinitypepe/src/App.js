@@ -54,7 +54,7 @@ function App() {
         />
       </form>
       <h2>검색된 이미지가 나와야해</h2>.
-      {!!rowData && <ImgBox APIdata={rowData} />}
+      <ImgBox APIdata={rowData} />
     </div>
   );
 }

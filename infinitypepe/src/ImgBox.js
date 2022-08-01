@@ -1,11 +1,15 @@
 import { useState } from "react";
 
 function ImgBox(props) {
-  const ImgURL = props.APIdata.documents[0]?.image_url ?? "./pepe.jpg";
+  const [imgArr, setImgArr] = useState([]);
+
+  setImgArr(props.APIdata);
+
+  console.log(imgArr.length);
 
   return (
     <div>
-      <img src={ImgURL}></img>
+      <img src={imgArr}></img>
     </div>
   );
 }
