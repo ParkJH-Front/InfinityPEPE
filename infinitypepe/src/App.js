@@ -10,8 +10,8 @@ import ImgBox from "./ImgBox";
 // 6. input 안에 있는 내용을 지워버림.
 
 function App() {
-  const [word, setWord] = useState("pepe");
-  const [search, setSearch] = useState("pepe");
+  const [word, setWord] = useState("");
+  const [search, setSearch] = useState("");
   const [rowData, setRowData] = useState([]);
 
   const onChange = (event) => setWord(event.target.value);
@@ -26,7 +26,6 @@ function App() {
   };
 
   useEffect(() => {
-    console.log(search);
     if (search === "") {
       return;
     }
@@ -37,10 +36,23 @@ function App() {
         Authorization: "KakaoAK 17d6f89d24fa2565f0e7155dc37188f0",
       },
     })
-      .then((req) => req.json())
+      .then(
+        (req) =>
+          console.log(req)
+          req.json()
+        // if ((req.ok = true)) {
+        //   return req.json();
+        // }
+      )
       .then((data) => {
-        setRowData(data);
-      });
+        // OBJ => ARR 변경(Objdct.values()) 데이터 다루는 아주 중요한 구문
+        setRowData(
+          Object.values(data)[0].map((item) => {
+            return item.image_url;
+          })
+        );
+      })
+      .catch();
   }, [search]);
 
   return (
@@ -50,11 +62,11 @@ function App() {
           onChange={onChange}
           value={word}
           type="text"
-          placeholder="Write your to do..."
+          placeholder="Search Image~!"
         />
       </form>
-      <h2>검색된 이미지가 나와야해</h2>.
-      <ImgBox APIdata={rowData} />
+      <h2>검색된 이미지가 나와야해</h2>
+      <ImgBox imgURLArr={rowData} />
     </div>
   );
 }

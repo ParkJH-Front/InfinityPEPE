@@ -1,15 +1,12 @@
-import { useState } from "react";
+import style from "./imgBox.module.css";
 
 function ImgBox(props) {
-  const [imgArr, setImgArr] = useState([]);
-
-  setImgArr(props.APIdata);
-
-  console.log(imgArr.length);
-
   return (
-    <div>
-      <img src={imgArr}></img>
+    <div className={style.container}>
+      {props?.imgURLArr.map((img, index) => (
+        // 키값 수정할것과, 디자인, 에러의 대한 처리 필요
+        <img className={style.box} key={index} src={img}></img>
+      ))}
     </div>
   );
 }
