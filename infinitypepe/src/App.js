@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ImgBox from "./ImgBox";
 
@@ -12,15 +12,20 @@ function Main() {
     if (word === "") {
       return;
     }
+    console.log(word);
     APIHandler(word);
     setWord("");
   };
 
   const params = useParams().text;
-  APIHandler(params);
+  //useEffect(()=>{},[]) 마운트 될때만 한번
+  //useEffect(()=>{ retrun () => {unmount}},[]) 마운트 될때만 한번, 언마운트될땐 unmount 한번
+  useEffect(() => {
+    APIHandler(params);
+  }, []);
 
   function APIHandler(word) {
-    const URL = `https://dapi.kakao.com/v2/search/image?query=${word}`;
+    let URL = `https://dapi.kakao.com/v2/search/image?query=${word}`;
     fetch(URL, {
       headers: {
         Authorization: "KakaoAK 17d6f89d24fa2565f0e7155dc37188f0",

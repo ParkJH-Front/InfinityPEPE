@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(255, 255, 228);
+  background-color: rgb(124, 51, 243);
 }
 
 .container {
@@ -19,10 +19,14 @@ body {
   border-radius: 15px;
   outline: 0;
   background-color: #fff;
+  font-size: large;
 }
 
 .btn {
   margin-left: -100px;
-  height: 100px;
+  height: 103px;
   width: 150px;
+  border: 0;
+  border-radius: 15px;
+  outline: 0;
 }
