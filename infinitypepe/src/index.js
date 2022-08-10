@@ -1,11 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import Main from "./App";
-import Wellcome from "./wellcome";
-import Login from "./login.js";
-
-// import "bootstrap/dist/css/bootstrap.css";
+import "./css/style.css";
+import Main from "./component/Main";
+import Wellcome from "./component/Wellcome";
+import Login from "./component/Login";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 

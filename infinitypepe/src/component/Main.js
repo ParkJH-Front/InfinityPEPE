@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ImgBox from "./ImgBox";
-import Login from "./login";
+import Login from "./Login";
 
 function Main() {
   const [word, setWord] = useState("");
