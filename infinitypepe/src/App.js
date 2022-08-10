@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ImgBox from "./ImgBox";
+import Login from "./login";
 
 function Main() {
   const [word, setWord] = useState("");
@@ -43,6 +44,7 @@ function Main() {
 
   return (
     <div>
+      <Login />
       <form onSubmit={onSubmit} value={word}>
         <input onChange={onChange} value={word} type="text" />
       </form>

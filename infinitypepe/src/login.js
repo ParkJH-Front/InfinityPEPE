@@ -1,15 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-// 로그인폼에 id 입력 엔터 pw 으로 넘어감
-// pw 까지 입력 후 엔터 submit 이벤트 발생 or pw 까지 입력 후 btn onClick시 submit 이벤트 발생
-// submit 이벤트 내 json/data.json API 에 접근
-// 등록되지 않은 ID, PW 의 경우 경고창 팝업
-// 등록되어 있는 ID, PW 의 경우 로그인 완료
-// 로그인완료 시 API 데이터를 통해 닉네임 nav에 표기, 로그인 모달 hidden
 
 function Login() {
   const [id, setId] = useState("");
   const [pw, setPw] = useState("");
-
   // useRef = DOM 객체 or element 에 접근하는 HOOK
   const inputRef = useRef();
   // 최초 한번 렌더링 시 포커스 위치를 지정.
@@ -25,25 +18,28 @@ function Login() {
   };
 
   const onChangeID = (event) => setId(event.target.value);
-  const onChangePW = (event) => setPw(event.target.value);
+  const onChangePW = (event) => {
+    setPw(event.target.value);
+  };
 
   const onSubmit = (event) => {
-    console.log(id, pw);
     event.preventDefault();
-    console.log(event.target.value);
-    const URL = `http://localhost:4001/Profiles/${id}`;
+    const URLID = `http://localhost:4000/Profiles/${id}`;
     // value id,pw 을 통해서 json 쿼리 하고 그 결과값으로 if
-    fetch(URL)
+    fetch(URLID)
       .then((req) => req.json())
       .then((json) => {
-        const check = Object.keys(json).length;
-        console.log(json);
-        if (check === 0) {
-          console.log("회원가입 정보가 확인되지 않습니다.");
+        const userID = json.id;
+        const userPW = json.password;
+        console.log(userID, userPW);
+        if (userID === undefined) {
+          console.log("ID가 존재하지 않습니다.");
+        } else if (userPW !== pw) {
+          console.log("PW가 존재하지 않습니다.");
         } else {
-          console.log("회원가입 정보가 확인됩니다.");
+          console.log(userID, userPW);
+          console.log("떳냐?");
         }
-        // console.log(json[0].id);
       });
   };
 
@@ -65,10 +61,10 @@ function Login() {
             id="pw"
             onChange={onChangePW}
             placeholder="writh your PW"
-            type="text"
+            type="password"
             required
           ></input>
-          <button id="submit"></button>
+          <button type="submit">Enter</button>
         </form>
       </div>
     </div>

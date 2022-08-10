@@ -17,7 +17,9 @@ function Wellcome() {
       <form onSubmit={onSubmit} className={style.container}>
         <div className={style.logo}></div>
         <input onChange={onChange} className={style.input} type="text"></input>
-        <button className={style.btn} type="submit"></button>
+        <button className={style.btn} type="submit">
+          찾기
+        </button>
       </form>
     </div>
   );
