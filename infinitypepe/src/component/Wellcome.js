@@ -21,11 +21,15 @@ function Wellcome() {
         <form className={style.row} onSubmit={onSubmit}>
           <img className={style.logo} src={logoImg} alt="logo" />
           <h1></h1>
-          <input
-            className={style.input}
-            onChange={onChange}
-            type="text"
-          ></input>
+          <div className={style.inputFrom}>
+            <input
+              className={style.input}
+              onChange={onChange}
+              type="text"
+              placeholder="search your think~"
+            ></input>
+            <button className={style.inputBtn}>search</button>
+          </div>
         </form>
       </div>
     </div>

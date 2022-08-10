@@ -1,0 +1,32 @@
+.row {
+  height: 50px;
+  text-align: right;
+  background-color: rgba(0, 0, 0, 0.589);
+
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+}
+
+.loginform {
+  padding-right: 20px;
+  padding-bottom: 5px;
+}
+
+.input {
+  margin-right: 10px;
+  border: solid 3px rgba(155, 155, 155, 0.192);
+  border-radius: 15px;
+}
+
+.btn {
+  border: solid 3px rgba(155, 155, 155, 0.192);
+  border-radius: 15px;
+}
+
+.text {
+  color: #fff;
+  font-size: 14px;
+  margin-right: 5px;
+}

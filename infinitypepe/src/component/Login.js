@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import style from "../css/Login.module.css";
 
 function Login() {
   const [id, setId] = useState("");
@@ -45,10 +46,11 @@ function Login() {
 
   return (
     <div>
-      <div>
-        <form onSubmit={onSubmit}>
+      <div className={style.row}>
+        <form className={style.loginform} onSubmit={onSubmit}>
+          <span className={style.text}>ID :</span>
           <input
-            id="id"
+            className={style.input}
             ref={inputRef}
             onKeyDown={onkeyDown}
             onChange={onChangeID}
@@ -56,15 +58,18 @@ function Login() {
             type="text"
             required
           ></input>
+          <span className={style.text}>PW :</span>
           <input
+            className={style.input}
             ref={inputRef}
-            id="pw"
             onChange={onChangePW}
             placeholder="writh your PW"
             type="password"
             required
           ></input>
-          <button type="submit">Enter</button>
+          <button className={style.btn} type="submit">
+            Enter
+          </button>
         </form>
       </div>
     </div>
