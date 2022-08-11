@@ -15,7 +15,7 @@ function Wellcome() {
   };
 
   return (
-    <div>
+    <div className="container">
       <Login />
       <div className={style.contanier}>
         <form className={style.row} onSubmit={onSubmit}>

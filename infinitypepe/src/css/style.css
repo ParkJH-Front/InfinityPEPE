@@ -2,3 +2,12 @@ body {
   margin: 0px;
   background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
 }
+
+.container {
+  width: 1080px;
+  margin: 0px auto;
+}
+
+.error {
+  display: none;
+}

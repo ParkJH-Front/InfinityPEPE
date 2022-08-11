@@ -43,7 +43,7 @@ function Main() {
   }
 
   return (
-    <div>
+    <div className="container">
       <Login />
       <form onSubmit={onSubmit} value={word}>
         <input onChange={onChange} value={word} type="text" />
