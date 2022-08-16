@@ -4,10 +4,25 @@ body {
 }
 
 .container {
-  width: 100%;
   margin: 0px auto;
 }
 
 .error {
   display: none;
+}
+
+.imgContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.input {
+  margin: 30px;
+  width: 800px;
+  height: 70px;
+  font-size: 24px;
+  border: solid 3px rgba(155, 155, 155, 0.192);
+  border-radius: 15px;
 }

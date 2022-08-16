@@ -1,0 +1,49 @@
+/* position : 요소의 위치 지정용 ;
+  position: static 기본값, 기본적으로 지정되어있어야 할 위치에 지정됨.;
+  position: relative 지정되지 않은 위치로 이동할 수 있음(상대적). top,left,bottom,right 로 활용;
+  position: absolute static 이 아닌 부모 요소를 기준으로 이동(없으면 body) top,left,bottom,right 로 활용;
+  position: fixed 고정된 위치에 배치, viewpoint 기준으로 top,left,bottom,right 로 활용; */
+
+.row {
+  width: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.box {
+  max-height: 400px;
+  margin: 10px;
+  width: 30%;
+  border: solid 2px rgba(49, 49, 49, 0.637);
+  object-fit: fill;
+}
+
+.modalContanier {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 99;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal img {
+  height: 500px;
+  width: 500px;
+  border: solid 2px rgba(49, 49, 49, 0.637);
+  object-fit: fill;
+}
+
+.modal h1 {
+  color: white;
+}
+.close {
+  display: none;
+}

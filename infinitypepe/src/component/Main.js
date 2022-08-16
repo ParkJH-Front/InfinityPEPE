@@ -45,11 +45,18 @@ function Main() {
   return (
     <div className="container">
       <Login />
-      <form onSubmit={onSubmit} value={word}>
-        <input onChange={onChange} value={word} type="text" />
-      </form>
-      <h1>이미지가 뿅 하고 나와야해</h1>
-      <ImgBox imgURLArr={rowData} />
+      <div className="imgContainer">
+        <form onSubmit={onSubmit} value={word}>
+          <input
+            className="input"
+            onChange={onChange}
+            value={word}
+            type="text"
+          />
+        </form>
+        <h1>찾은 이미지</h1>
+        <ImgBox imgURLArr={rowData} />
+      </div>
     </div>
   );
 }
