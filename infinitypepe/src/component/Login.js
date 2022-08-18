@@ -34,9 +34,9 @@ function Login() {
         const userPW = json.password;
         console.log(userID, userPW);
         if (userID === undefined) {
-          console.log("ID가 존재하지 않습니다.");
+          alert("ID가 존재하지 않습니다.");
         } else if (userPW !== pw) {
-          console.log("PW가 존재하지 않습니다.");
+          alert("PW가 존재하지 않습니다.");
         } else {
           console.log(userID, userPW);
           console.log("떳냐?");
@@ -47,6 +47,8 @@ function Login() {
   return (
     <div>
       <div className={style.row}>
+        <button className={style.btn}>회원가입</button>
+
         <form className={style.loginform} onSubmit={onSubmit}>
           <span className={style.text}>ID :</span>
           <input

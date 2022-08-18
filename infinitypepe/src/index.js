@@ -6,6 +6,7 @@ import Main from "./component/Main";
 import Wellcome from "./component/Wellcome";
 import Login from "./component/Login";
 import Forum from "./component/Forum";
+import Sign from "./component/SignUp";
 import Test from "./component/test";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -18,6 +19,7 @@ root.render(
       <Route path="/aaa:text" element={<Main />} />
       <Route path="/Forum" element={<Forum />} />
       <Route path="/test" element={<Test />} />
+      <Route path="/signup" element={<Sign />} />
     </Routes>
   </BrowserRouter>
 );
