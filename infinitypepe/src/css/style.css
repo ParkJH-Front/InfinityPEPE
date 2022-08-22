@@ -11,6 +11,14 @@ body {
   display: none;
 }
 
+.none {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
 .imgContainer {
   display: flex;
   flex-direction: column;
