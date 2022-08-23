@@ -34,3 +34,8 @@ body {
   border: solid 3px rgba(155, 155, 155, 0.192);
   border-radius: 15px;
 }
+
+.test {
+  width: 300px;
+  height: 300px;
+}
