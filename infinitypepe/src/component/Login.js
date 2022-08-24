@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import style from "../css/Login.module.css";
+import "../css/Login.css";
 
 function Login() {
   const [id, setId] = useState("");
@@ -51,14 +51,14 @@ function Login() {
   };
 
   return (
-    <div>
-      <div className={style.row}>
+    <div className="row row_Login">
+      <div>
         <div ref={loginBoxRef}>
-          <div>
-            <form className={style.loginform} onSubmit={onSubmit}>
-              <span className={style.text}>ID :</span>
+          <div className="row row_Login">
+            <form className="layout_back" onSubmit={onSubmit}>
+              <span>ID :</span>
               <input
-                className={style.input}
+                className="input_sub layout_input "
                 ref={inputRef}
                 onKeyDown={onkeyDown}
                 onChange={onChangeID}
@@ -66,27 +66,29 @@ function Login() {
                 type="text"
                 required
               ></input>
-              <span className={style.text}>PW :</span>
+              <span>PW :</span>
               <input
-                className={style.input}
+                className="input_sub layout_input "
                 ref={inputRef}
                 onChange={onChangePW}
                 placeholder="writh your PW"
                 type="password"
                 required
               ></input>
-              <button className={style.btn} type="submit">
+              <button className="btn_sub layout_btn" type="submit">
                 Enter
               </button>
             </form>
-            <button onClick={moveSignup} className={style.btn}>
-              회원가입
-            </button>
+            <div>
+              <button className="btn_sub layout_btn" onClick={moveSignup}>
+                회원가입
+              </button>
+            </div>
           </div>
         </div>
       </div>
       <div className="none" ref={signUpBoxRef}>
-        <h1>환영합니다 ${id}님.</h1>
+        <div className="layout_back">환영합니다 {id}님.</div>
       </div>
     </div>
   );

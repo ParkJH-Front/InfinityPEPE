@@ -1,0 +1,23 @@
+.row_Login {
+  background-color: rgba(146, 146, 146, 0.466);
+  width: 100%;
+
+  justify-content: right;
+  align-items: center;
+}
+
+.layout_back {
+  padding: 20px 10px;
+}
+
+.layout_btn {
+  margin-right: 10px;
+}
+
+.layout_input {
+  margin-left: 10px;
+}
+
+.layout_text {
+  margin-right: 10px;
+}

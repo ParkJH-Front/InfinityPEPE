@@ -48,11 +48,12 @@ function Main() {
       <div className="imgContainer">
         <form onSubmit={onSubmit} value={word}>
           <input
-            className="input"
+            className="input_main"
             onChange={onChange}
             value={word}
             type="text"
           />
+          <button className="btn_main">찾기</button>
         </form>
         <h1>찾은 이미지</h1>
         <ImgBox imgURLArr={rowData} />

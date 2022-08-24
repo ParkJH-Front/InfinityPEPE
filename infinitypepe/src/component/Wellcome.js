@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import style from "../css/Wellcome.module.css";
+import "../css/Wellcome.css";
 import logoImg from "../img/logo_nukki.png";
 import Login from "./Login";
 
@@ -14,23 +14,35 @@ function Wellcome() {
     navigate(`/aaa${value}`);
   };
 
+  // // 배경 백그라운드 이미지 랜덤으로 가져올 로직임.
+  // function randomBackground() {
+  //   fetch("http://placeimg.com/1000/480/nature/grayscale").then((req) =>
+  //     console.log(req)
+  //   );
+  // }
+  // randomBackground();
+
   return (
     <div className="container">
       <Login />
-      <div className={style.contanier}>
-        <form className={style.row} onSubmit={onSubmit}>
-          <img className={style.logo} src={logoImg} alt="logo" />
-          <h1></h1>
-          <div className={style.inputFrom}>
-            <input
-              className={style.input}
-              onChange={onChange}
-              type="text"
-              placeholder="search your think~"
-            ></input>
-            <button className={style.inputBtn}>search</button>
+      <div className="container">
+        <div className="column layout_center">
+          <div>
+            <img className="logo" src={logoImg} alt="logo" />
           </div>
-        </form>
+          <h1>다양한 이미지를 빠르게 찾아보세요</h1>
+          <form onSubmit={onSubmit}>
+            <div className="row">
+              <input
+                className="input_main"
+                onChange={onChange}
+                type="text"
+                placeholder="  이미지 검색"
+              ></input>
+              <button className="btn_main">search</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );

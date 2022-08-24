@@ -1,6 +1,26 @@
-body {
+/* font */
+@charset "utf-8";
+
+@font-face {
+  font-family: "main-font";
+  src: url("./font/NanumSquareR.otf") format("opentype");
+  font-size: large;
+}
+
+/* media query */
+
+@media all and (max-width: 1024px) {
+}
+/* width 1024px 보다 작아질 때 적용 */
+
+@media all and (max-width: 768px) {
+}
+/* width 768px 보다 작아질 때 적용 */
+/* default css */
+
+body,
+html {
   margin: 0px;
-  background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
 }
 
 .container {
@@ -19,6 +39,20 @@ body {
   display: block;
 }
 
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .imgContainer {
   display: flex;
   flex-direction: column;
@@ -26,16 +60,30 @@ body {
   align-items: center;
 }
 
-.input {
-  margin: 30px;
-  width: 800px;
-  height: 70px;
+.input_main {
+  margin: 30px 0px 30px 30px;
+  padding: 10px 400px 10px 0px;
   font-size: 24px;
   border: solid 3px rgba(155, 155, 155, 0.192);
   border-radius: 15px;
 }
 
-.test {
-  width: 300px;
-  height: 300px;
+.input_sub {
+  margin-right: 10px;
+  border: solid 3px rgba(155, 155, 155, 0.192);
+  border-radius: 15px;
+}
+
+.btn_main {
+  color: rgb(56, 56, 56);
+  margin-left: 5px;
+  padding: 10px 50px;
+  font-size: 24px;
+  border: solid 3px rgba(155, 155, 155, 0.192);
+  border-radius: 15px;
+}
+
+.btn_sub {
+  border: solid 3px rgba(155, 155, 155, 0.192);
+  border-radius: 15px;
 }

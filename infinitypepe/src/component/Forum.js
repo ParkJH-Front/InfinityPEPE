@@ -22,9 +22,7 @@ function Forum() {
   };
 
   function delectAPI() {
-    fetch("http://localhost:4000/Forum/두번째 글", {
-      method: "DELECT",
-    }).then((req) => req.json());
+    return;
   }
 
   return (

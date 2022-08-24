@@ -13,8 +13,19 @@ function Test() {
 
   return (
     <div>
-      <button onClick={onClick}>Click!!!!</button>
-      <h1 ref={testRef}>test world</h1>
+      <div>
+        <input className="input_main" placeholder="input 1"></input>
+        <input className="input_sub" placeholder="input 2"></input>
+        <button className="btn_main">btn1</button>
+        <button className="btn_sub">btn2</button>
+      </div>
+      <div>
+        <div>
+          <div className="font-large">divdivdiv</div>
+          <p>pppppppp</p>
+          <span>sapnsapn</span>
+        </div>
+      </div>
     </div>
   );
 }

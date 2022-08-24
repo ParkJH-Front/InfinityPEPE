@@ -4,7 +4,7 @@
   position: absolute static 이 아닌 부모 요소를 기준으로 이동(없으면 body) top,left,bottom,right 로 활용;
   position: fixed 고정된 위치에 배치, viewpoint 기준으로 top,left,bottom,right 로 활용; */
 
-.row {
+.layout_imgBox {
   width: 1000px;
   display: flex;
   flex-wrap: wrap;
@@ -12,11 +12,11 @@
 }
 
 .box {
-  max-height: 400px;
+  height: 300px;
   margin: 10px;
   width: 30%;
   border: solid 2px rgba(49, 49, 49, 0.637);
-  object-fit: fill;
+  object-fit: cover;
 }
 
 .modalContanier {
@@ -38,7 +38,7 @@
   height: 500px;
   width: 500px;
   border: solid 2px rgba(49, 49, 49, 0.637);
-  object-fit: fill;
+  object-fit: cover;
 }
 
 .modal h1 {

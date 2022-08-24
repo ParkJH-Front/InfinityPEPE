@@ -44,7 +44,7 @@ function ImgBox(props) {
 
   return (
     <div className="container">
-      <div className="row">
+      <div className="layout_imgBox">
         <div className="modalContanier close" onClick={bgClick} ref={modalRef}>
           <div className="modal">
             <img src={modal}></img>
