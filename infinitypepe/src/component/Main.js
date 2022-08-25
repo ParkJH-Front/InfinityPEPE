@@ -43,7 +43,7 @@ function Main() {
   }
 
   return (
-    <div className="container">
+    <div>
       <Login />
       <div className="imgContainer">
         <form onSubmit={onSubmit} value={word}>

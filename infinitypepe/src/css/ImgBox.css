@@ -5,18 +5,18 @@
   position: fixed 고정된 위치에 배치, viewpoint 기준으로 top,left,bottom,right 로 활용; */
 
 .layout_imgBox {
-  width: 1000px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  column-width: 300px;
+  column-gap: 15px;
 }
 
 .box {
-  height: 300px;
-  margin: 10px;
-  width: 30%;
-  border: solid 2px rgba(49, 49, 49, 0.637);
-  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.img {
+  width: 100%;
+  border: 2px solid rgba(143, 142, 142, 0.692);
+  border-radius: 10px;
 }
 
 .modalContanier {
@@ -35,10 +35,9 @@
 }
 
 .modal img {
-  height: 500px;
-  width: 500px;
+  height: 100%;
   border: solid 2px rgba(49, 49, 49, 0.637);
-  object-fit: cover;
+  object-fit: fill;
 }
 
 .modal h1 {

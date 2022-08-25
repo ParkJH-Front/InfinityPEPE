@@ -23,7 +23,7 @@ function Wellcome() {
   // randomBackground();
 
   return (
-    <div className="container">
+    <div>
       <Login />
       <div className="container">
         <div className="column layout_center">
