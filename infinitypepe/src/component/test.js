@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import "../css/test.css";
 
 function Test() {
   const testRef = useRef("");
@@ -10,6 +11,14 @@ function Test() {
     testRef.current.innerText = num;
     console.log(testRef.current.innerText);
   };
+
+  function testOnClick(event) {
+    if (event.target.className === "testimg") {
+      event.target.className = "hidden";
+    } else {
+      event.target.className = "testimg";
+    }
+  }
 
   return (
     <div>
@@ -26,6 +35,69 @@ function Test() {
           <span>sapnsapn</span>
         </div>
       </div>
+      <div className="box">
+        <div className="box_ani">
+          <div className="img_test"> 123123</div>
+          <div className="imgIcon">
+            <div>🔴</div>
+            <div>🟠</div>
+            <div>🟢</div>
+          </div>
+        </div>
+      </div>
+      <div className="box">
+        <div className="box_ani">
+          <div className="img_test"> 123123</div>
+          <div className="imgIcon">
+            <div>🔴</div>
+            <div>🟠</div>
+            <div>🟢</div>
+          </div>
+        </div>
+      </div>
+      <div className="box">
+        <div className="box_ani">
+          <div className="img_test"> 123123</div>
+          <div className="imgIcon">
+            <div>🔴</div>
+            <div>🟠</div>
+            <div>🟢</div>
+          </div>
+        </div>
+      </div>
+      <div className="box">
+        <div className="box_ani">
+          <div className="img_test"> 123123</div>
+          <div className="imgIcon">
+            <div>🔴</div>
+            <div>🟠</div>
+            <div>🟢</div>
+          </div>
+        </div>
+      </div>
+      <div className="columns">
+        <div className="box">
+          <div className="box_ani">
+            <div className="img_test"> 123123</div>
+            <div className="imgIcon">
+              <div>🔴</div>
+              <div>🟠</div>
+              <div>🟢</div>
+            </div>
+          </div>
+        </div>
+        <div className="box">
+          <div className="box_ani">
+            <div className="img_test"> 123123</div>
+            <div className="imgIcon">
+              <div>🔴</div>
+              <div>🟠</div>
+              <div>🟢</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="imgback"></div>
     </div>
   );
 }

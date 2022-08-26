@@ -19,8 +19,6 @@ function Main() {
   };
 
   const params = useParams().text;
-  //useEffect(()=>{},[]) 마운트 될때만 한번
-  //useEffect(()=>{ retrun () => {unmount}},[]) 마운트 될때만 한번, 언마운트될땐 unmount 한번
   useEffect(() => {
     APIHandler(params);
   }, []);

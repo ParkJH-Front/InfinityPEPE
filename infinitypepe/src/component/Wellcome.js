@@ -11,7 +11,7 @@ function Wellcome() {
   const onChange = (event) => setValue(event.target.value);
 
   const onSubmit = () => {
-    navigate(`/aaa${value}`);
+    navigate(`/main${value}`);
   };
 
   // // 배경 백그라운드 이미지 랜덤으로 가져올 로직임.
