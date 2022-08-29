@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, Component, Suspense, lazy } from "react";
 import { useParams } from "react-router-dom";
-import ImgBox from "./ImgBox";
 import Login from "./Login";
+import Loding from "../img/Rhombus.gif";
 
 function Main() {
   const [word, setWord] = useState("");
@@ -40,6 +40,13 @@ function Main() {
       });
   }
 
+  const ImgBox = lazy(() => {
+    return Promise.all([
+      import("./ImgBox"),
+      new Promise((resolve) => setTimeout(resolve, 5000)),
+    ]).then(([moduleExports]) => moduleExports);
+  });
+
   return (
     <div>
       <Login />
@@ -54,7 +61,9 @@ function Main() {
           <button className="btn_main">찾기</button>
         </form>
         <h1>찾은 이미지</h1>
-        <ImgBox imgURLArr={rowData} />
+        <Suspense fallback={<img src={Loding} alt="loding" />}>
+          <ImgBox imgURLArr={rowData} />
+        </Suspense>
       </div>
     </div>
   );
