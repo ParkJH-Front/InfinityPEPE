@@ -22,6 +22,13 @@ function Test() {
 
   return (
     <div>
+      <a
+        href="http://t1.daumcdn.net/cfile/tistory/990E31405E0ECEE134"
+        download
+        className="input_main"
+      >
+        <img src="http://t1.daumcdn.net/cfile/tistory/990E31405E0ECEE134" />
+      </a>
       <div>
         <input className="input_main" placeholder="input 1"></input>
         <input className="input_sub" placeholder="input 2"></input>

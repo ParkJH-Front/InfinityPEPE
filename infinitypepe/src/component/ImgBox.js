@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { createElement, useEffect, useRef, useState } from "react";
 import "../css/ImgBox.css";
 
 // 주석처리는 모달기능, 필요하면 다시 구현
@@ -14,10 +14,42 @@ function ImgBox(props) {
     err.target.parentElement.className = "error";
   };
 
-  function downloadHandler(imgURL) {
-    console.log(imgURL);
-    fetch(imgURL, { method: "GET" }).then((req) => console.log(req.blob()));
+  function downloadHandler(img) {
+    const image = new Image();
+    image.crossOrigin = "anonymous";
+    image.src = img;
+    const filename = "test";
+    image.onload = function () {
+      const canvas = document.createElement("canvas");
+      canvas.width = this.width;
+      canvas.height = this.height;
+      canvas.getContext("2d").drawImage(this, 0.0);
+
+      const a = document.createElement("a");
+      a.href = canvas.toDataURL();
+      a.download = "";
+      a.click();
+    };
   }
+
+  // function downloadHandler(img) {
+  //   console.log(img);
+  //   fetch(img, {
+  //     method: "GET",
+  //     mode: "no-cors",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   })
+  //     .then((req) => req.blob())
+  //     .then((blob) => {
+  //       const a = document.createElement("a");
+  //       a.download = String(blob.arrayBuffer.name);
+  //       a.style.display = "none";
+  //       document.body.appendChild(a);
+  //       a.click();
+  //     });
+  // }
 
   // const onClick = (event) => {
   //   modalImgRef.current.src = event.target.src;
