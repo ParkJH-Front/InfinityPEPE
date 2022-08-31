@@ -1,6 +1,7 @@
 .row_Login {
   background-color: rgba(146, 146, 146, 0.466);
   width: 100%;
+  z-index: 999;
 
   justify-content: right;
   align-items: center;

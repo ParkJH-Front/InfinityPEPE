@@ -5,6 +5,8 @@ import "../css/Login.css";
 function Login() {
   const [id, setId] = useState("");
   const [pw, setPw] = useState("");
+  const [checkID, setCheckID] = useState(null);
+  const USERNAME = "userName";
   // useRef = DOM 객체 or element 에 접근하는 HOOK
   const inputRef = useRef();
   // 최초 한번 렌더링 시 포커스 위치를 지정.
@@ -44,11 +46,21 @@ function Login() {
         } else if (userPW !== pw) {
           alert("PW가 존재하지 않습니다.");
         } else {
+          alert("환영합니다.");
+          localStorage.setItem(USERNAME, userID);
           loginBoxRef.current.className = "none";
           signUpBoxRef.current.className = "show";
         }
       });
   };
+  setCheckID(localStorage.getItem(USERNAME));
+  console.log(checkID);
+  if (checkID !== null) {
+    console.log(`id 에 값 있어 :${checkID}`);
+  } else {
+    console.log(`id 비었어 :${checkID}`);
+  }
+  useState(() => {}, []);
 
   return (
     <div className="row row_Login">
