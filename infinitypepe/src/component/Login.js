@@ -6,16 +6,15 @@ function Login() {
   const [id, setId] = useState("");
   const [pw, setPw] = useState("");
   const [checkID, setCheckID] = useState(null);
+  const [greeting, setGreeting] = useState("");
   const USERNAME = "userName";
   // useRef = DOM 객체 or element 에 접근하는 HOOK
   const inputRef = useRef();
   // 최초 한번 렌더링 시 포커스 위치를 지정.
   const loginBoxRef = useRef();
   const signUpBoxRef = useRef();
-
   const navigate = useNavigate();
   const moveSignup = (event) => navigate(`/signup`);
-
   useEffect(() => {
     inputRef.current.focus();
   }, []);
@@ -32,6 +31,16 @@ function Login() {
     setPw(event.target.value);
   };
 
+  function singUpDisplay(targer) {
+    if (targer === "on") {
+      loginBoxRef.current.className = "none";
+      signUpBoxRef.current.className = "show";
+    } else {
+      loginBoxRef.current.className = "show";
+      signUpBoxRef.current.className = "none";
+    }
+  }
+
   const onSubmit = (event) => {
     event.preventDefault();
     const URLID = `http://localhost:4000/Profiles/${id}`;
@@ -47,25 +56,39 @@ function Login() {
           alert("PW가 존재하지 않습니다.");
         } else {
           alert("환영합니다.");
-          localStorage.setItem(USERNAME, userID);
-          loginBoxRef.current.className = "none";
-          signUpBoxRef.current.className = "show";
+          setGreeting(`환영합니다 ${id} 님.`);
+          localStorage.setItem(USERNAME, JSON.stringify(userID));
+          singUpDisplay("on");
         }
       });
   };
-  setCheckID(localStorage.getItem(USERNAME));
-  console.log(checkID);
-  if (checkID !== null) {
-    console.log(`id 에 값 있어 :${checkID}`);
-  } else {
-    console.log(`id 비었어 :${checkID}`);
+
+  function checkSingUp() {
+    setCheckID(localStorage.getItem(USERNAME));
+    if (checkID === null) {
+      console.log(`ID 비엇어 ${checkID}`);
+      return;
+    } else {
+      console.log(`ID 들어있어 ${checkID}`);
+      setGreeting(`환영합니다 ${checkID} 님.`);
+      singUpDisplay("on");
+    }
   }
-  useState(() => {}, []);
+
+  const logout = () => {
+    setCheckID(null);
+    localStorage.clear();
+    singUpDisplay("off");
+  };
+
+  useEffect(() => {
+    checkSingUp();
+  }, []);
 
   return (
     <div className="row row_Login">
       <div>
-        <div ref={loginBoxRef}>
+        <div className="show" ref={loginBoxRef}>
           <div className="row row_Login">
             <form className="layout_back" onSubmit={onSubmit}>
               <span>ID :</span>
@@ -100,7 +123,10 @@ function Login() {
         </div>
       </div>
       <div className="none" ref={signUpBoxRef}>
-        <div className="layout_back">환영합니다 {id}님.</div>
+        <span className="layout_back">{greeting}</span>
+        <button className="btn_sub" onClick={logout}>
+          logout
+        </button>
       </div>
     </div>
   );

@@ -51,7 +51,7 @@ function SignUp() {
           <span>PW : </span>
           <input onChange={PWvalue}></input>
           <p></p>
-          <button>가입</button>
+          <button className="btn_sub">가입</button>
         </form>
       </div>
     </div>

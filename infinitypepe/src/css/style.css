@@ -38,6 +38,10 @@ html {
   display: none;
 }
 
+.hidden {
+  display: hidden;
+}
+
 .show {
   display: block;
 }
