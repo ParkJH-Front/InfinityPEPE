@@ -64,7 +64,8 @@ function Login() {
   };
 
   function checkSingUp() {
-    setCheckID(localStorage.getItem(USERNAME));
+    console.log(localStorage.getItem(USERNAME));
+
     if (checkID === null) {
       console.log(`ID 비엇어 ${checkID}`);
       return;
@@ -82,6 +83,8 @@ function Login() {
   };
 
   useEffect(() => {
+    setCheckID(localStorage.getItem(USERNAME));
+    console.log(checkID);
     checkSingUp();
   }, []);
 
