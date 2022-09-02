@@ -3,8 +3,7 @@
 
 @font-face {
   font-family: "main-font";
-  src: url("./font/NanumSquareR.otf") format("opentype");
-  font-size: large;
+  src: url("./font/NanumSquareR.otf");
 }
 
 /* media query */

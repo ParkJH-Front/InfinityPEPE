@@ -1,0 +1,20 @@
+/* font */
+
+/* media query */
+
+/* defult_style */
+
+.container {
+}
+
+.flex_row {
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  align-items: center;
+}
+
+.flex_column {
+  display: flex;
+  flex-direction: column;
+}
