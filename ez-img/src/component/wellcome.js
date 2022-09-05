@@ -50,6 +50,8 @@ function Wellcome() {
           <div className="center_main flex_column">
             <img className="logo" src={logo}></img>
             <h1>다양한 이미지를 빠르게 찾아보세요.</h1>
+            <p>쉽게 찾고, 바로 다운받으세요.</p>
+            <p>언제든지 다시 찾을 수 있도록 스크랩 하세요.</p>
           </div>
         </section>
       </article>
