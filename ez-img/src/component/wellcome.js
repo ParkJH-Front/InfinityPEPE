@@ -4,7 +4,7 @@ import logo from "../img/logo_nukki.png";
 import Nav from "./nav";
 
 function Wellcome() {
-  const [bgImg, setBgImg] = useState("");
+  const [bgImg, setBgImg] = useState("https://source.unsplash.com/random");
   const backgroundImgUrl = "https://source.unsplash.com/random";
 
   function useInterval(callback, delay) {
@@ -33,7 +33,7 @@ function Wellcome() {
         setBgImg(res.url);
       }
     });
-  }, 3000);
+  }, 2500);
 
   return (
     <main className="container">

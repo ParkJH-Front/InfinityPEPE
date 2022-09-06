@@ -1,6 +1,6 @@
 /* font */
 @font-face {
-  font-family: title_main;
+  font-family: main;
   font-weight: 400;
   src: url("../font/NanumSquareR.ttf") format("truetype");
 }

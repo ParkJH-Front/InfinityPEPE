@@ -42,38 +42,40 @@ function ImgBox(props) {
   }
 
   return (
-    <div className="container">
-      <div className="layout_imgBox" /**row */>
-        {props?.imgURLArr.map((img, index) => (
-          <div className="box">
-            <img
-              className="img"
-              onError={onErrorImg}
-              alt=""
-              key={index}
-              src={img}
-            />
-            <div className="imgIcon">
-              <button>스크랩</button>
-              <button onClick={() => openModal(img)}>크게보기</button>
-              <button type="button" onClick={() => downloadHandler(img)}>
-                다운로드
+    <section>
+      <div>
+        <div className="layout_imgBox">
+          {props?.imgURLArr.map((img, index) => (
+            <div className="box">
+              <img
+                className="img"
+                onError={onErrorImg}
+                alt=""
+                key={index}
+                src={img}
+              />
+              <div className="imgIcon">
+                <button>스크랩</button>
+                <button type="button" onClick={() => downloadHandler(img)}>
+                  다운로드
+                </button>
+                <button onClick={() => openModal(img)}>크게보기</button>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="close" onClick={bgClick} ref={modalRef}>
+          <div className="modal">
+            <div className="column modalShow">
+              <img ref={modalImgRef}></img>
+              <button className="modalBtn" onClick={closeModal}>
+                ❌
               </button>
             </div>
           </div>
-        ))}
-      </div>
-      <div className=" close" onClick={bgClick} ref={modalRef}>
-        <div className="modal">
-          <div className="column modalShow">
-            <img ref={modalImgRef}></img>
-            <button className="modalBtn" onClick={closeModal}>
-              ❌
-            </button>
-          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

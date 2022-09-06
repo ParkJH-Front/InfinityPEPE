@@ -31,6 +31,7 @@ function Main() {
         );
       });
   }
+
   return (
     <div>
       <Nav />

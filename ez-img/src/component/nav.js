@@ -25,7 +25,7 @@ function Nav() {
     <nav className="background_nav">
       {/* 로고 => wellcome 으로 가기 */}
       <section>
-        <a href="#">
+        <a href="/">
           <img className="logo_nav" src={logo}></img>
         </a>
       </section>
