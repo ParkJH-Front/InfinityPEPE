@@ -30,6 +30,10 @@
   display: hidden;
 }
 
+.error {
+  display: none;
+}
+
 .center {
   position: absolute;
   top: 50%;

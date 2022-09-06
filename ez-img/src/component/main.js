@@ -8,11 +8,11 @@ function Main() {
   /** API 통해 검색된 ImgURL */
   const [imgURL, setImgURL] = useState("");
 
-  /** 최초 rander 시 Nav component 전달 받은 Prop 로 검색하는 로직 */
-  const params = useParams().text;
+  /** Nav component 전달 받은 parameter 를 API 에 전달하는 로직 */
+  const param = useParams().text;
   useEffect(() => {
-    APIHandler(params);
-  }, []);
+    APIHandler(param);
+  }, [param]);
 
   /** 이미지 검색 API, input: word(string) return: imgURL */
   function APIHandler(keyword) {
@@ -34,7 +34,6 @@ function Main() {
   return (
     <div>
       <Nav />
-      <h1>찾은 이미지</h1>
       <Suspense fallback={<img src={Loding} alt="loding" />}>
         <ImgRander imgURL={imgURL} />
       </Suspense>

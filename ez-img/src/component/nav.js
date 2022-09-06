@@ -12,20 +12,18 @@ function Nav() {
 
   const onChange = (event) => setKeyword(event.target.value);
   const onSubmit = (event) => {
-    event.preventDafault();
+    event.preventDefault();
     if (keyword === "") {
-      // 동민이는 바보다
       return;
     } else {
       navigate(`/main${keyword}`);
       setKeyword("");
-      // 동민이는 멍충이다
     }
   };
 
   return (
     <nav className="background_nav">
-      {/* 로고 => 메인으로 가기 */}
+      {/* 로고 => wellcome 으로 가기 */}
       <section>
         <a href="#">
           <img className="logo_nav" src={logo}></img>
@@ -38,6 +36,7 @@ function Nav() {
           <input
             className="search_input"
             onChange={onChange}
+            value={keyword}
             type="text"
             placeholder="    이미지 검색"
           ></input>

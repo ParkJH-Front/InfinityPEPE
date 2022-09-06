@@ -3,11 +3,7 @@ function ImgRander(props) {
     console.log(props?.imgURL);
   }
 
-  return (
-    <div>
-      <h1>imgRander</h1>
-    </div>
-  );
+  return <div></div>;
 }
 
 export default ImgRander;
