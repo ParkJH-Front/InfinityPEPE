@@ -1,7 +1,6 @@
 import { useEffect, useState, Component, Suspense, lazy } from "react";
 import { useParams } from "react-router-dom";
 import Nav from "./nav";
-import ImgRander from "./imgrander";
 import Loding from "../img/Rhombus.gif";
 
 function Main() {
@@ -14,7 +13,7 @@ function Main() {
     APIHandler(param);
   }, [param]);
 
-  /** 이미지 검색 API, input: word(string) return: imgURL */
+  /** 이미지 검색 API, input: word(string) return: json.data */
   function APIHandler(keyword) {
     let URL = `https://dapi.kakao.com/v2/search/image?query=${keyword}`;
     fetch(URL, {
@@ -26,16 +25,24 @@ function Main() {
       .then((json) => {
         setImgURL(
           Object.values(json)[0].map((item) => {
-            return item.image_url;
+            return item;
           })
         );
       });
   }
 
+  /** 지연로딩 3000ms */
+  const ImgRander = lazy(() => {
+    return Promise.all([
+      import("./imgrander"),
+      new Promise((resolve) => setTimeout(resolve, 1000)),
+    ]).then(([moduleExports]) => moduleExports);
+  });
+
   return (
     <div>
       <Nav />
-      <Suspense fallback={<img src={Loding} alt="loding" />}>
+      <Suspense fallback={<img className="center" src={Loding} alt="loding" />}>
         <ImgRander imgURL={imgURL} />
       </Suspense>
     </div>

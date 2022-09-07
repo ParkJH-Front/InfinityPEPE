@@ -2,19 +2,24 @@ import { useRef } from "react";
 import "../css/imgrander.css";
 
 function ImgRander(props) {
+  /** useRef 모달 영역 및 모달 이미지 영역 DOM 캐치 */
   const modalRef = useRef("");
   const modalImgRef = useRef("");
 
-  const propsArray = Object.values(props?.imgURL);
+  /** Object 로 전달받은 props Array로 반환 */
+  const propsData = Object.values(props?.imgURL);
 
+  /** imgURL 로드 시, error 발생 시 해당 element 출력안함 */
   const onErrorImg = (err) => {
     err.target.parentElement.className = "error";
   };
 
+  /** 다운로드 버튼 클릭 시 이미지 다운로드 기능 */
   function downloadHandler(imgURL) {
-    alert("CORS 문제 해결 후 기능 구현 예정 ~ '༼ つ ◕_◕ ༽つ");
+    // alert("CORS 문제 해결 후 기능 구현 예정 ~ '༼ つ ◕_◕ ༽つ");
   }
 
+  /** 모달을 열고, 닫고 핸들링 하는 로직 */
   const openModal = (img) => {
     modalImgRef.current.src = img;
     modalHandler();
@@ -43,29 +48,31 @@ function ImgRander(props) {
   return (
     <section className="layout_imgbox">
       <div className="column_imgBox">
-        {propsArray.map((imgSrc, index) => (
-          <div className="box">
-            <img
-              className="rander_img"
-              src={imgSrc}
-              key={index}
-              onError={onErrorImg}
-            />
-            <div className="imgIcon">
-              <button>스크랩</button>
-              <button onClick={() => openModal(imgSrc)}>크게보기</button>
-              <button type="button" onClick={() => downloadHandler(imgSrc)}>
-                다운로드
-              </button>
+        {propsData
+          .map((arr) => arr.image_url)
+          .map((imgSrc, index) => (
+            <div className="box">
+              <img
+                className="rander_img"
+                src={imgSrc}
+                key={index}
+                onError={onErrorImg}
+              />
+              <div className="imgIcon">
+                <button>스크랩</button>
+                <button onClick={() => openModal(imgSrc)}>크게보기</button>
+                <button type="button" onClick={() => downloadHandler(imgSrc)}>
+                  다운로드
+                </button>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
         <div className=" close" onClick={bgClick} ref={modalRef}>
           <div className="modal">
             <div className="column modalShow">
               <img ref={modalImgRef}></img>
               <button className="modalBtn" onClick={closeModal}>
-                ❌
+                X
               </button>
             </div>
           </div>
