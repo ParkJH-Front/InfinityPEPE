@@ -1,7 +1,6 @@
 import { useState } from "react";
 // import { useNavigate } from "react-router-dom";
 import "../css/nav.css";
-import Main from "./main";
 import logo from "../img/logo_nukki.png";
 import { useNavigate } from "react-router-dom";
 
@@ -19,6 +18,10 @@ function Nav() {
       navigate(`/main${keyword}`);
       setKeyword("");
     }
+  };
+
+  const onClick = (event) => {
+    navigate(`/login`);
   };
 
   return (
@@ -46,7 +49,9 @@ function Nav() {
       {/* 로그인기능 */}
       <section>
         <form>
-          <button className="login_btn">login</button>
+          <button className="login_btn" onClick={onClick}>
+            login
+          </button>
         </form>
       </section>
     </nav>
