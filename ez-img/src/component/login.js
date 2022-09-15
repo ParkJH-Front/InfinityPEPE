@@ -4,6 +4,7 @@ import logo from "../img/logo_nukki.png";
 import backgroundImg from "../img/background.jpg";
 import "../css/login.css";
 import "../css/nav.css";
+import "../css/default.css";
 
 function Login() {
   const [userID, setUserID] = useState("");
@@ -72,7 +73,7 @@ function Login() {
       <section className="login_box center">
         <form onSubmit={onSubmit} className="flex_column">
           <div>
-            <span>ez-img 로그인</span>
+            <h1>ez-img 로그인</h1>
           </div>
           <div>
             <input
@@ -98,7 +99,7 @@ function Login() {
           <button className="login_box_btn">회원가입</button>
         </form>
         {/* 회원가입 기능 */}
-        <section className="">
+        <section className="none">
           <form className="flex_column sign_Up">
             <input onChange={onNewID} placeholder="newID"></input>
             <input

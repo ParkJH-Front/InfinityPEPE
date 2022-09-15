@@ -29,6 +29,10 @@
   display: none;
 }
 
+.none {
+  display: none;
+}
+
 .center {
   position: absolute;
   top: 50%;

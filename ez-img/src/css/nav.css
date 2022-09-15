@@ -22,12 +22,13 @@
 }
 
 .search_input {
+  width: 80%;
   margin-left: 10px;
   padding: 10px 0px;
-  width: 80%;
   /* border: 2px solid rgb(53, 53, 53, 0.7); */
   border: none;
   border-radius: 5px;
+  text-indent: 20px;
 }
 
 .search_btn {
