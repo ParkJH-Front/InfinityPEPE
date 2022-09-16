@@ -45,6 +45,25 @@ function ImgRander(props) {
     }
   }
 
+  /** 스크랩 버튼 클릭 시 URL 사용자에 저장 */
+  const USERNAME = "USERNAME";
+  const jsonServer = "http://localhost:4000";
+  const onScrap = (img) => {
+    const user = localStorage.getItem(USERNAME);
+    console.log(img);
+    console.log(`${jsonServer}/Profiles/${user}`);
+
+    fetch(`${jsonServer}/Profiles/${user}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        scrapImg: `${img}`,
+      }),
+    }).then((res) => console.log(res.json()));
+  };
+
   return (
     <section className="layout_imgbox">
       <div className="column_imgBox">
@@ -59,7 +78,7 @@ function ImgRander(props) {
                 onError={onErrorImg}
               />
               <div className="imgIcon">
-                <button>스크랩</button>
+                <button onClick={() => onScrap(imgSrc)}>스크랩</button>
                 <button onClick={() => openModal(imgSrc)}>크게보기</button>
                 <button type="button" onClick={() => downloadHandler(imgSrc)}>
                   다운로드

@@ -7,7 +7,7 @@
   background-color: rgba(0, 0, 0, 0.4);
 
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
@@ -18,11 +18,12 @@
 }
 
 .search_layout {
-  width: 80%;
+  width: 70%;
+  text-align: center;
 }
 
 .search_input {
-  width: 80%;
+  width: 70%;
   margin-left: 10px;
   padding: 10px 0px;
   /* border: 2px solid rgb(53, 53, 53, 0.7); */
@@ -45,6 +46,30 @@
   margin-right: 20px;
   background-color: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 5px;
+}
+
+.greeting {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-family: main;
+  font-size: larger;
+}
+
+.greeting > p {
+  margin-right: 20px;
+
+  color: #fff;
+}
+
+.greeting > button {
+  padding: 10px 20px;
+  margin-right: 20px;
+  color: #fff;
+  background-color: blue;
   border: none;
   border-radius: 5px;
 }

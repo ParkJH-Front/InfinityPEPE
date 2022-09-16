@@ -42,18 +42,22 @@
   width: 40%;
 }
 
+.show {
+  display: block;
+}
+
 .sign_Up > input {
   width: 50%;
   margin-bottom: 15px;
   padding: 10px;
-  border: 1px solid blue;
+  border: 1px solid rgb(70, 70, 255);
   border-radius: 5px;
 }
 
 .sign_Up > button {
   width: 55%;
   padding: 10px 0px;
-  background-color: blue;
+  background-color: rgb(70, 70, 255);
   color: #fff;
   font-weight: bold;
   border: none;

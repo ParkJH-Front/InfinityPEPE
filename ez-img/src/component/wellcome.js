@@ -29,7 +29,6 @@ function Wellcome() {
 
   useInterval(() => {
     fetch(backgroundImgUrl).then((res) => {
-      console.log(res);
       if (res.ok === true) {
         setBgImg(res.url);
       }
